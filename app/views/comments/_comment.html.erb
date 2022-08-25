@@ -1,0 +1,22 @@
+<% unless comment.archived? %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+
+  <p>
+    <strong> Status: <strong>
+      <%= comment.status%>
+  </p>
+
+    <button type="button" style="border-radius : 5px"> <li><%= link_to "Destroy Comment", [comment.article, comment], data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li> </button>
+
+<% end %>

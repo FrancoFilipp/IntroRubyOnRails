@@ -1,0 +1,24 @@
+
+<div>
+    <h1> Nombre : <%= @article.title %></h1>
+</div>
+
+<p>Descripcion : <%= @article.body %></p>
+
+<p> Creado en : <%= @article.created_at %></p>
+
+<p> Status : <%= @article.status %></p>
+
+  <button type="button" style="border-radius : 5px"> <a href=<%= edit_article_path(@article) %>> EditArticle </a> </button>
+  <button type="button" style="border-radius : 5px"> <li><%= link_to "Destroy", article_path(@article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li> </button>
+
+
+
+<h2>Comments</h2>
+<%= render @article.comments %> 
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
